@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ADAM AI app walkthrough, Prakasam R</title>
-<meta name="description" content="A three-minute tour of the ADAM AI app, recorded live from a local build on public CDISC pilot data.">
+<meta name="description" content="A four-minute tour of the ADAM AI app, recorded live from a local build on public CDISC pilot data, ending with an agent run and an independent sign-off.">
 <meta property="og:title" content="ADAM AI app walkthrough">
-<meta property="og:description" content="A three-minute tour of the ADAM AI app, recorded live on public CDISC pilot data.">
+<meta property="og:description" content="A four-minute tour of the ADAM AI app, recorded live on public CDISC pilot data.">
 <meta property="og:image" content="https://grprakasam.github.io/adam-ai-walkthrough.jpg">
 <meta name="theme-color" content="#EEF1EC">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2315213B'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' text-anchor='middle' fill='%23EEF1EC'%3EPR%3C/text%3E%3C/svg%3E">
@@ -41,7 +41,7 @@
 <header class="wrap">
   <a class="back" href="./">Back to portfolio</a>
   <h1>ADAM AI app walkthrough</h1>
-  <p class="lede">A three-minute tour of the app, recorded live from a local build on public CDISC pilot data (pharmaverse). It covers study setup, the pair programmer, traceability, QC tools, submission checks and the agent workbench.</p>
+  <p class="lede">A four-minute tour of the app, recorded live from a local build on public CDISC pilot data (pharmaverse). It covers study setup, the pair programmer, traceability, QC tools, submission checks, and a full agent run that ends with sign-off by a second user.</p>
   <span class="stamp">Proof of concept, local build</span>
   <div class="film">
     <video id="v" src="adam-ai-walkthrough.mp4" poster="adam-ai-walkthrough.jpg" controls playsinline preload="metadata"></video>
@@ -56,9 +56,10 @@
     <li><button data-t="90">1:30</button><span>Traceability matrix and lineage graph</span></li>
     <li><button data-t="115">1:55</button><span>SDTM test data, dataset comparison and code comparison</span></li>
     <li><button data-t="171">2:51</button><span>Submission readiness checks</span></li>
-    <li><button data-t="185">3:05</button><span>Agent workbench with independent sign-off</span></li>
+    <li><button data-t="185">3:05</button><span>Agent run: static checks, R run on 306 subjects, comparison with the reference (attempt 1 fails, attempt 2 matches 28/28)</span></li>
+    <li><button data-t="221">3:41</button><span>Independent sign-off by a second user, and the audit log check</span></li>
   </ol>
-  <p class="note">This tour shows the screens and checks that run without a model. The AI pipeline (generate, check, run R, compare with the reference, sign-off) is shown in the <a href="https://github.com/grprakasam/adam-ai/blob/main/docs/demo/adam-ai-demo.gif">pipeline demo</a>. Code: <a href="https://github.com/grprakasam/adam-ai">github.com/grprakasam/adam-ai</a>.</p>
+  <p class="note">No AI model is called in this recording. In the agent run, two recorded programs stand in for the model (replay mode, the same one the public benchmark uses); the first carries two planted bugs. The static checks, the R run, the comparison with the reference, the sign-off rules and the audit log all run live. The pipeline is also shown in the <a href="https://github.com/grprakasam/adam-ai/blob/main/docs/demo/adam-ai-demo.gif">one-minute pipeline demo</a>. Code: <a href="https://github.com/grprakasam/adam-ai">github.com/grprakasam/adam-ai</a>.</p>
 </section>
 <script>
   document.querySelectorAll('button[data-t]').forEach(function (b) {
