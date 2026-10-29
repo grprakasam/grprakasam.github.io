@@ -35,11 +35,15 @@
   li { display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
   li button { font: 600 15px var(--sans); color: var(--link); background: none; border: 0; padding: 0; cursor: pointer; text-align: left; text-decoration: underline; text-underline-offset: 3px; }
   .note { color: var(--ink-2); font-size: 15px; max-width: 70ch; margin-top: 24px; }
+  .next { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .btn { display: inline-flex; align-items: center; padding: 12px 18px; border-radius: 6px; font-weight: 600; font-size: 16px; text-decoration: none; border: 1.5px solid var(--ink); color: var(--ink); }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn:hover { background: var(--ink); color: var(--paper); }
 </style>
 </head>
 <body>
 <header class="wrap">
-  <a class="back" href="./">Back to portfolio</a>
+  <a class="back" href="./">Portfolio home</a>
   <h1>ADAM AI app walkthrough</h1>
   <p class="lede">A four-minute tour of the app, recorded live from a local build on public CDISC pilot data (pharmaverse). It covers study setup, the pair programmer, traceability, QC tools, submission checks, and a full agent run that ends with sign-off by a second user.</p>
   <span class="stamp">Proof of concept, local build</span>
@@ -60,6 +64,11 @@
     <li><button data-t="221">3:41</button><span>Independent sign-off by a second user, and the audit log check</span></li>
   </ol>
   <p class="note">No AI model is called in this recording. In the agent run, two recorded programs stand in for the model (replay mode, the same one the public benchmark uses); the first carries two planted bugs. The static checks, the R run, the comparison with the reference, the sign-off rules and the audit log all run live. The pipeline is also shown in the <a href="https://github.com/grprakasam/adam-ai/blob/main/docs/demo/adam-ai-demo.gif">one-minute pipeline demo</a>. Code: <a href="https://github.com/grprakasam/adam-ai">github.com/grprakasam/adam-ai</a>.</p>
+  <nav class="next" aria-label="Next">
+    <a class="btn primary" href="./#architecture">See the architecture behind it</a>
+    <a class="btn" href="intro.html">Prakasam R in one minute</a>
+    <a class="btn" href="https://www.linkedin.com/in/grprakasam">Connect on LinkedIn</a>
+  </nav>
 </section>
 <script>
   document.querySelectorAll('button[data-t]').forEach(function (b) {

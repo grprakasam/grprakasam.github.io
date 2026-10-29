@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Prakasam R, agentic AI for life sciences</title>
-<meta name="description" content="Technology manager with 17+ years in clinical analytics and banking, building agentic AI that a regulated business can check before it trusts it. Demos, code and evidence.">
-<meta property="og:title" content="Prakasam R, agentic AI for life sciences">
-<meta property="og:description" content="Three AI projects, each with a one-minute demo and a note on how every number was measured.">
+<title>Prakasam R · Agentic AI architecture</title>
+<meta name="description" content="Technology manager with 17+ years in clinical analytics and banking, designing agentic AI that regulated teams can audit. Architecture, demos, code and evidence.">
+<meta property="og:title" content="Prakasam R · Agentic AI architecture">
+<meta property="og:description" content="A reference agent architecture, three AI projects with demos, and a note on how every number was measured.">
 <meta property="og:image" content="https://grprakasam.github.io/adam-ai.jpg">
 <meta property="og:url" content="https://grprakasam.github.io/">
 <meta name="theme-color" content="#EEF1EC">
@@ -79,9 +79,33 @@
   .next { margin: 18px 0 0; padding: 14px 16px; border-left: 3px dashed var(--caution); background: rgba(168,106,18,.06); max-width: 58ch; font-size: 16px; }
   .next b { color: var(--caution); }
 
-  /* Principles and credentials */
-  .principles { list-style: none; padding: 0; margin: 0; display: grid; gap: 22px; max-width: 64ch; }
-  .principles li { font-family: var(--serif); font-size: clamp(22px, 3vw, 27px); line-height: 1.3; padding-left: 22px; border-left: 3px solid var(--pass); }
+  /* Availability line */
+  .avail { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 0 0 28px; padding: 0; font-size: 15px; font-weight: 600; }
+  .avail span { padding: 5px 12px; border: 1px solid var(--rule); border-radius: 999px; background: var(--sheet); }
+  .avail .go { color: var(--pass); border-color: var(--pass); }
+
+  /* Architecture */
+  .arch { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 14px; counter-reset: none; }
+  .arch li { position: relative; display: grid; gap: 4px; align-content: start; padding: 16px 16px 14px; background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; }
+  .arch li .n { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 700; color: var(--sheet); background: var(--ink); }
+  .arch li b { font-family: var(--serif); font-size: 21px; font-weight: 600; line-height: 1.2; margin-top: 6px; }
+  .arch li span:not(.n) { font-size: 15px; color: var(--ink-2); line-height: 1.45; }
+  .arch li a { font-size: 13px; font-weight: 600; margin-top: 4px; }
+  .arch li.human { border-color: var(--pass); box-shadow: inset 0 0 0 1px var(--pass); }
+  .arch li.human .n { background: var(--pass); }
+  .arch li:not(:last-child)::after { content: "↓"; position: absolute; left: 50%; bottom: -15px; transform: translateX(-50%); font-size: 16px; color: var(--ink-2); line-height: 1; }
+  .loop { margin: 22px 0 0; padding: 14px 16px; border-left: 3px dashed var(--link); background: rgba(36,72,201,.05); max-width: 72ch; font-size: 16px; }
+  .loop b { color: var(--link); }
+  .rail { list-style: none; margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .rail li { font-size: 15px; color: var(--ink-2); padding: 12px 14px; border-top: 2px solid var(--ink); background: var(--sheet); }
+  .rail li b { display: block; color: var(--ink); font-size: 16px; margin-bottom: 2px; }
+  @media (min-width: 700px) { .rail { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 980px) {
+    .arch { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; }
+    .arch li:not(:last-child)::after { content: "→"; left: auto; right: -15px; top: 50%; bottom: auto; transform: translateY(-50%); }
+    .rail { grid-template-columns: repeat(4, 1fr); }
+  }
+
   .creds { list-style: none; padding: 0; margin: 0; max-width: 760px; }
   .creds li { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
   .creds span:last-child { color: var(--ink-2); white-space: nowrap; }
@@ -105,26 +129,48 @@
 
 <header class="hero wrap">
   <h1>Prakasam R</h1>
-  <p class="role">Technology manager building agentic AI for life sciences</p>
-  <p class="lede">17+ years in clinical analytics and banking. I build AI systems that a regulated business can check before it trusts them: deterministic checks before human sign-off, evaluations that run in CI, and an audit trail end to end. Based in Chennai, India.</p>
+  <p class="role">I design agentic AI that regulated teams can audit.</p>
+  <p class="lede">Technology manager with 17+ years across life sciences and banking. My agents check their own work with deterministic gates, run evaluations as CI quality gates, and stop for an independent human sign-off, with an audit trail end to end.</p>
+  <p class="avail"><span>Claude Certified Architect – Foundations</span><span>Chennai, India</span><span class="go">Available from 15 Nov 2026</span></p>
   <div class="actions">
-    <a class="btn primary" href="https://www.linkedin.com/in/grprakasam"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn profile</a>
+    <a class="btn primary" href="walkthrough.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch the 4-minute app walkthrough</a>
+    <a class="btn" href="https://www.linkedin.com/in/grprakasam"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn profile</a>
     <a class="btn" href="https://github.com/grprakasam"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></svg>GitHub</a>
   </div>
 </header>
 
-<div class="intro wrap">
+<div class="intro wrap" id="intro">
   <div class="film">
     <video src="intro.mp4" poster="intro.jpg" controls muted playsinline preload="metadata" data-auto></video>
     <p class="caption">My resume in one minute: an animated walkthrough with captions, no audio.</p>
   </div>
 </div>
 
+<section class="block wrap" id="architecture">
+  <h2>How I architect an agent</h2>
+  <p class="intro-text">ADAM AI is my reference design. Each stage is a decision I wrote down as an architecture decision record (ADR), and each one exists because a regulated reviewer will ask about it.</p>
+  <ol class="arch" aria-label="ADAM AI pipeline">
+    <li><span class="n">1</span><b>Spec in</b><span>ADaM specification, YAML or Excel</span></li>
+    <li><span class="n">2</span><b>Generate</b><span>LLM drafts the R program; cheap model first</span><a href="https://github.com/grprakasam/adam-ai/blob/main/docs/adr/0004-cheap-first-model-routing-and-cost-tracking.md">ADR 0004</a></li>
+    <li><span class="n">3</span><b>Static gates</b><span>safety, syntax, variable coverage, CDISC naming</span><a href="https://github.com/grprakasam/adam-ai/blob/main/docs/adr/0002-deterministic-gates-before-human-review.md">ADR 0002</a></li>
+    <li><span class="n">4</span><b>Sandboxed run</b><span>R in a container with no network</span><a href="https://github.com/grprakasam/adam-ai/blob/main/docs/adr/0009-sandboxed-execution.md">ADR 0009</a></li>
+    <li><span class="n">5</span><b>Compare</b><span>every variable against an independent reference</span><a href="https://github.com/grprakasam/adam-ai/blob/main/docs/adr/0006-public-benchmark-and-ci-quality-gate.md">ADR 0006</a></li>
+    <li class="human"><span class="n">6</span><b>Human sign-off</b><span>an independent reviewer; the requester cannot approve</span><a href="https://github.com/grprakasam/adam-ai/blob/main/docs/adr/0003-mandatory-independent-human-sign-off.md">ADR 0003</a></li>
+  </ol>
+  <p class="loop"><b>Repair loop.</b> Any failure at stages 3 to 5 goes back to stage 2 with the evidence: the error, or the mismatched variables with example subjects. Repeated failures escalate to a stronger model, then to a person.</p>
+  <ul class="rail" aria-label="Cross-cutting design">
+    <li><b>Durable state</b>LangGraph checkpoints in SQLite, so a paused review survives a restart · <a href="https://github.com/grprakasam/adam-ai/blob/main/docs/adr/0010-strict-verification-and-durable-review.md">ADR 0010</a></li>
+    <li><b>Tamper-evident audit</b>every step in a hash-chained log · <a href="https://github.com/grprakasam/adam-ai/blob/main/docs/adr/0005-hash-chained-audit-log.md">ADR 0005</a></li>
+    <li><b>Cost control</b>tokens and cost per run, in USD and INR · <a href="https://github.com/grprakasam/adam-ai/blob/main/docs/adr/0004-cheap-first-model-routing-and-cost-tracking.md">ADR 0004</a></li>
+    <li><b>Tools for other agents</b>the deterministic checks exposed as an MCP server · <a href="https://github.com/grprakasam/adam-ai/blob/main/docs/adr/0007-mcp-server-for-deterministic-checks.md">ADR 0007</a></li>
+  </ul>
+</section>
+
 <section class="block wrap" id="projects">
   <h2>What I have built, and how each number was measured</h2>
   <p class="intro-text">All three are proofs of concept on public or synthetic data. Each demo replays a real run, and each stamp says how that number was produced.</p>
 
-  <article class="project">
+  <article class="project" id="adam-ai">
     <div class="film">
       <video src="adam-ai.mp4" poster="adam-ai.jpg" controls muted loop playsinline preload="none" data-auto></video>
     </div>
@@ -140,7 +186,7 @@
     </div>
   </article>
 
-  <article class="project">
+  <article class="project" id="workflow-modernization">
     <div class="film">
       <video src="workflow-modernization.mp4" poster="workflow-modernization.jpg" controls muted loop playsinline preload="none" data-auto></video>
     </div>
@@ -157,7 +203,7 @@
     </div>
   </article>
 
-  <article class="project">
+  <article class="project" id="exam-builder">
     <div class="film">
       <video src="ai-exam-builder.mp4" poster="ai-exam-builder.jpg" controls muted loop playsinline preload="none" data-auto></video>
     </div>
@@ -174,18 +220,9 @@
   </article>
 </section>
 
-<section class="block wrap">
-  <h2>How I build</h2>
-  <ul class="principles">
-    <li>Model output is untrusted until a deterministic check passes.</li>
-    <li>Every capability states its evidence: unit-tested, replayed, mocked or live.</li>
-    <li>Significant decisions are written down as decision records.</li>
-  </ul>
-  <p class="clients">Before AI, I delivered clinical analytics and data work for Pfizer, Johnson &amp; Johnson, Abbott, Baxter and Vestas, and analyst, BI and QA work for State Street, American Express, GE Corporate Treasury, NewDay and Standard Bank of South Africa. I lead a team of 10 and have trained 200+ colleagues in R and Shiny.</p>
-</section>
-
-<section class="block wrap">
-  <h2>Credentials</h2>
+<section class="block wrap" id="credentials">
+  <h2>Background and credentials</h2>
+  <p class="clients">Before AI, I delivered clinical analytics and data work for Pfizer, Johnson &amp; Johnson, Abbott, Baxter and Vestas, and analyst, BI and QA work for State Street, American Express, GE Corporate Treasury, NewDay and Standard Bank of South Africa. At Ephicacy I led a team of 10 (3 direct reports) and trained 200+ colleagues in R and Shiny.</p>
   <ul class="creds">
     <li><span>Claude Certified Architect – Foundations, Anthropic</span><span>2026</span></li>
     <li><span>AWS Certified Generative AI Developer – Professional, in preparation</span><span>Q1 2027</span></li>
@@ -196,7 +233,7 @@
 </section>
 
 <footer class="wrap">
-  <p class="honest">Every number on this page says how it was produced. Nothing here is production experience yet.</p>
+  <p class="honest">These are proofs of concept, and every number says how it was produced: replayed, mocked, self-measured or live.</p>
   <div class="links"><a href="https://www.linkedin.com/in/grprakasam">LinkedIn</a><a href="https://github.com/grprakasam">GitHub</a></div>
   <p class="small">Videos are animated replays of real runs; MP4 and GIF versions are in each repository.</p>
 </footer>
